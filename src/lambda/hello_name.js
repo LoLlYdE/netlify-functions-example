@@ -4,7 +4,7 @@ const API_ENDPOINT =
   "http://store.steampowered.com/api/appdetails?appids=";
 
 exports.handler = async (event, context) => {
-  id = event.queryStringParameters.name;
+  var id = event.queryStringParameters.name;
   return fetch(API_ENDPOINT + id)
     .then(response => response.json())
     .then(data => ({
