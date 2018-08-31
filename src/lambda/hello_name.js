@@ -9,7 +9,7 @@ exports.handler = async (event, context) => {
     .then(response => response.json())
     .then(data => ({
       statusCode: 200,
-      body: `url: ${API_ENDPOINT + id} response: ${JSON.stringify(data)}`
+      body: `name: ${data[id].data.name} response: ${JSON.stringify(data)}`
     }))
     .catch(error => ({ statusCode: 422, body: String(error) }));
 };
