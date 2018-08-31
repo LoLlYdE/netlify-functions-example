@@ -1,16 +1,14 @@
 import fetch from "node-fetch";
 
 const API_ENDPOINT =
-  "http://store.steampowered.com/api/appdetails?appids=";
+  "https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke";
 
 exports.handler = async (event, context) => {
-  var passed_id = event.queryStringParameters.id
-  return fetch(API_ENDPOINT + passed_id)
+  return fetch(API_ENDPOINT)
     .then(response => response.json())
     .then(data => ({
       statusCode: 200,
-      body: `${data}`
+      body: data
     }))
     .catch(error => ({ statusCode: 422, body: String(error) }));
 };
- 
